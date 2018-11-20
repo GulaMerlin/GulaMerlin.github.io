@@ -15,7 +15,22 @@
 from collections import dequedeque(maxlen=n)构造函数新建一个大小为n的列队，当新的元素加入并且这个队列已满的时候，最老的元素会被自动移除掉
 
 
-import heapsheaps.nlargest(n, nums, key) 在num">
+import heapsheaps.nlargest(n, nums, key) 在nums中找最大到n个数或者以key为最值寻找heaps.nsmallest(n, nums, key) 在nums中找最小到n个数或者以key为最值寻找
+
+
+##字典中的键映射多个值from collections import defaultdicta = defaultdict(type) 构造一个字典a且值类型为typea[‘g’].append(1) 向字典a中添加键为g值为1的内容
+
+
+min = min(zip(dict.values(), dict.keys())) 获取字典dict中的最小值和对应的键dict = sorted = sorted(zip(dict.values(), dict.keys()))为dict排序相比用lambda函数来说比较方便
+
+
+##序列中出现次数最多的元素from collections import Counterword_counts = Counter(str)top_three = word_counts.most_common(n)实例化Counter对象word_counts (字典) 然后调用most_common(n)方法产生一个以元祖为元素的列表元祖内容为出现str序列中n个出现次数最多的元素以及出现总次数实例化的Count对象的特性是它们可以很容易的跟数学运算操作相结合
+
+
+##通过某个关键字排序一个字典列表from operator from itemgetterstr_by_uid = sorted(str, key = itemgetter(‘uid’))str_by_uid = sorted(str, key = lambda r:r[‘uid’])这两种方式都行如果需要多个参数itemgetter可以传入多个参数，sorted的key参数是callble类型的，如果itemgetter传入多个参数的话他生成的callable对象会返回一个元组，sorted会根据顺序去排序；如果lambda函数需要多个key值的话就需要返回多个值就行了并且itemgetter()方法相比之下运行稍微会快一点max_str_by_uid = max(str, key=itemgetter(‘uid’))
+
+
+##排序不支持原生比较的对象from operator import attrgetteruser_by_id = sorted(user, key=attrgetter(‘id’))user_by_id = sorted(user, key=lambda u:u[‘id’])sorted中传入的user参数为不支持原生比较的对像(写了比较函数的就不要这样了) attrgetter和lambda函数中传入的是对象属性且前者运行速度较快可传入多个参数">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -164,8 +179,10 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>##排序不支持原生比较的对象<br>from operator import attrgetter<br>user_by_id = sorted(user, key=attrgetter(‘id’))<br>user_by_id = sorted(user, key=lambda u:u[‘id’])<br>sorted中传入的user参数为不支持原生比较的对像(写了比较函数的就不要这样了) attrgetter和lambda函数中传入的是对象属性且前者运行速度较快可传入多个参数</p>
 </blockquote>
+<a id="more"></a>
 <blockquote>
-<p>##通过某个字段将记录分组<br>from operator import itemgetter<br>from itertools import groupby<br>dict_list.sort(key=itemgetter(‘date’))<br>for date, item in groupby(tict_list, key=itemgetter(‘date’)):<br>​     print(date)<br>​     for i in items:<br>​           print(‘ ‘, i)<br>groupby()函数可以根据key值将一个字典函数分组，但是在使用这个函数时最好将需要分组的序列先排序，这里首相将dict_list利用sort函数传入itemgetter处理后的’date’参数排序，然后用groupby()函数按key值将dict_list分组打印.groupby()返回的是一个迭代器</p>
+<p>##通过某个字段将记录分组</p>
+<p>from operator import itemgetter<br>from itertools import groupby<br>dict_list.sort(key=itemgetter(‘date’))<br>for date, item in groupby(tict_list, key=itemgetter(‘date’)):<br>​     print(date)<br>​     for i in items:<br>​           print(‘ ‘, i)<br>groupby()函数可以根据key值将一个字典函数分组，但是在使用这个函数时最好将需要分组的序列先排序，这里首相将dict_list利用sort函数传入itemgetter处理后的’date’参数排序，然后用groupby()函数按key值将dict_list分组打印.groupby()返回的是一个迭代器</p>
 </blockquote>
 <blockquote>
 <p>##过滤序列元素<br>[n for n in list if n &gt; 0] 列表推到导 list中大于0的元素 返回的是值序列<br>[n &gt; 0 for n in list ]   列表推导list中大于0的元素 返回的是布尔值序列<br>[n if n &gt; 0 else 1 for n list] 列表推导list中大于0的元素，如果小于0用1替代返回的是替代后的值的序列 替代的值可以是字符串<br>如果使用列表推导会产生一个很大的结果集占用内存过大可以用迭代器解决此问题<br>pos = (n for n in list if n &gt; 0)<br>如果判断条件较为复杂可以用filter()函数，该函数传入两个参数，第一个参数为判断的函数第二个是需要过滤的序列，返回的是一个迭代器<br>当你需要另一个相关联的序列来过滤某个序列时<br>imprt itertools<br>itertools.compress() 传入一个需要过滤的序列和另一个对应的Boolean序列 返回的也是迭代器</p>
