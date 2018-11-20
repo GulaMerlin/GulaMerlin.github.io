@@ -6,13 +6,21 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>GulaMerlin&#39;s only Py file</title>
+  <title>Python_cookbook | GulaMerlin&#39;s only Py file</title>
   <meta name="author" content="Jian Jun">
+  
+  <meta name="description" content="#数据结构和算法
+
+
+from collections import dequedeque(maxlen=n)构造函数新建一个大小为n的列队，当新的元素加入并且这个队列已满的时候，最老的元素会被自动移除掉
+
+
+import heapsheaps.nlargest(n, nums, key) 在num">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Python_cookbook">
   <meta property="og:site_name" content="GulaMerlin&#39;s only Py file">
 
   
@@ -111,46 +119,29 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header logo">
-  <h1>python<span class="blink-fast">∎</span></h1>
-</div>
+    	 
 
-<div class="row page">
 
 	
+		<div class="page-header">
+			<h1> Python_cookbook</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
-      <i class="fa fa-heart blink-slow"></i>
-      Keep and carry on.
-</div>    
-		<div id="top_search"></div>
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2018/11/20/cookbook/">Python_cookbook</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2018-11-20  </div>
-		</div>
-	</div>
-	
+	<!-- content -->
+	<div class="mypage">		
+	  		
 
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>#数据结构和算法</p>
+	  <p>#数据结构和算法</p>
 <hr>
 <blockquote>
 <p>from collections import deque<br>deque(maxlen=n)构造函数新建一个大小为n的列队，当新的元素加入并且这个队列已满的时候，最老的元素会被自动移除掉</p>
@@ -221,204 +212,93 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>###审查清理文本字符</p>
 </blockquote>
-
-	
-	</div>
-  <a type="button" href="/2018/11/20/cookbook/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2018/11/20/DOM/">关于DOM的要点使用</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2018-11-20  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>#一些常用的 HTML DOM 方法：<br>getElementById(id) - 获取带有指定 id 的节点（元素）<br>appendChild(node) - 插入新的子节点（元素）<br>首先创建一个节点，<br>然后创建一个文本节点，<br>然后将文本节点添加到LI节点上。<br>最后将节点添加到列表中。<br> appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。<br>如果不希望如此，您可以使用 insertBefore() 方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;var node = document.createElement(&quot;li&quot;)  #创建了以li节点</span><br><span class="line">&gt;var textnode = document.createTextNode(&quot;里子&quot;) #创建了一个文本节点</span><br><span class="line">&gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上</span><br><span class="line">&gt;document.getElementById(&quot;d&quot;).appendChild(node) #将节点li添加到列表中</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>removeChild(node) - 删除子节点（元素）<br>先找到需要删除的节点的父节点再用方法删除需要删除的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>#一些常用的 HTML DOM 属性：<br>innerHTML - 节点（元素）的文本值<br>parentNode - 节点（元素）的父节点<br>childNodes - 节点（元素）的子节点<br>attributes - 节点（元素）的属性节点</p>
-</blockquote>
-<blockquote>
-<p>getElementById()    返回带有指定 ID 的元素。<br>getElementsByTagName()    返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。<br>getElementsByClassName()    返回包含带有指定类名的所有元素的节点列表。<br>appendChild()    把新的子节点添加到指定节点。<br>removeChild()    删除子节点。<br>replaceChild()    替换子节点。<br>如果你需要替换一个子节点name你需要做的事有6件<br>首先找到需要被替换的子节点和其父节点；其次创建一个新的节点或者替换的节点和替换的内容；在将替换的内容添加到新的节点中；最后用父节点.replaceChild(新的节点，被替换的节点)。这样你就完成了节点的替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p1&quot;);</span><br><span class="line">&gt;var para=document.createElement(&quot;p&quot;);</span><br><span class="line">&gt;var node=document.createTextNode(&quot;这是一个新的段落。&quot;);</span><br><span class="line">&gt;para.appendChild(node);</span><br><span class="line">&gt;parent.replaceChild(para,child);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>insertBefore()    在指定的子节点前面插入新的子节点。<br>createAttribute()    创建属性节点。<br>createElement()    创建元素节点。<br>createTextNode()    创建文本节点。<br>getAttribute()    返回指定的属性值。<br>setAttribute()    把指定属性设置或修改为指定的值。</p>
-</blockquote>
-<blockquote>
-<p>##nodeValue 属性<br>nodeValue 属性规定节点的值。<br>元素节点的 nodeValue 是 undefined 或 null<br>文本节点的 nodeValue 是文本本身<br>属性节点的 nodeValue 是属性值</p>
-</blockquote>
-<blockquote>
-<p>##修改 HTML 元素<br>修改 HTML DOM 意味着许多不同的方面：<br>改变 HTML 内容<br>改变 CSS 样式<br>改变 HTML 属性<br>创建新的 HTML 元素<br>删除已有的 HTML 元素<br>找到需要修改的节点用innerHTML属性等于新的值像这样：documen.getElementById(“info”).innerHTML=”新的数据”<br>修改样式：<br>documen.getElementById(“info”).style.color=”red”<br>这里修改样式很灵活，如果你只需要修改某一个属性就点上它如果需要修改所有属性那么就不需要点任何一个属性直接style=””这样你就可以重写他的样式了</p>
-</blockquote>
-<blockquote>
-<p>##HTML 事件属性</p>
-<p>###onclick=””<br>鼠标点击事件：当鼠标点击有onclick事件的元素或者节点时会执行双引号中的函数</p>
-<p>###onload 和 onunload 事件<br>用户进入或者离开网页事件：当用户进入到某一网页含onload 和 onunload 事件中时会执行事件后的函数多用于处理 cookies。</p>
-<p>###onchange 事件<br>onchange 事件常用于输入字段的验证。这里是当你完成输入时触发事件后的函数</p>
-<p>###onmouseover 和 onmouseout 事件<br>onmouseover 和 onmouseout 事件可用于在鼠标指针移动到或离开元素时触发函数。</p>
-<p>###onmousedown、onmouseup 以及 onclick 事件<br>onmousedown、onmouseup 以及 onclick 事件是鼠标点击的全部过程。首先当某个鼠标按钮被点击时，触发 onmousedown 事件，然后，当鼠标按钮被松开时，会触发 onmouseup 事件，最后，当鼠标点击完成时，触发 onclick 事件</p>
-</blockquote>
-
-	
-	</div>
-  <a type="button" href="/2018/11/20/DOM/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2018/11/19/hello-world/">Hello World</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2018-11-19  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-	
-	</div>
-  <a type="button" href="/2018/11/19/hello-world/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
-
-   
-</div>
-
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control">
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
-
-
-		
-			
-	<div class="widget">
-		<h4>Categories</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/Python/">Python<span>1</span></a></li>
-		
-			<li><a href="/categories/web前端/">web前端<span>1</span></a></li>
-		
-		</ul>
+	  
 	</div>
 
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/cookbook/">cookbook<span>1</span></a></li>
-		
-			<li><a href="/tags/DOM/">DOM<span>1</span></a></li>
-		
-		 
-		</ul>
-	</div>
+	<div>
+  	<center>
+	<div class="pagination">
 
-
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
     
-      <li>
-        <a href="/2018/11/20/cookbook/"><i class="fa fa-file-o"></i>Python_cookbook</a>
-      </li>
     
-      <li>
-        <a href="/2018/11/20/DOM/"><i class="fa fa-file-o"></i>关于DOM的要点使用</a>
-      </li>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
     
-      <li>
-        <a href="/2018/11/19/hello-world/"><i class="fa fa-file-o"></i>Hello World</a>
-      </li>
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-  </ul>
+    <a href="/2018/11/20/DOM/" type="button" class="btn btn-default ">Next<i class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
 </div>
 
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
 		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/GulaMerlin" title="My Github account." target="_blank" ]);"="">My Github</a></li>
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
 	
-	</ul>
-</div>
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-11-20 
+	</div>
+	
 
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    </li><li><a href="/categories/Python/">Python<span>1</span></a></li>
+  
 
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cookbook/">cookbook<span>1</span></a></li>
+    </ul>
+	</div>
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
 
+	<!-- toc -->
+	<div class="meta-widget">
 	
+	</div>
 	
-</div> <!-- row-fluid -->
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
 	</div>
   </div>
   <div class="container-narrow">
