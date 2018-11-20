@@ -27,10 +27,7 @@ min = min(zip(dict.values(), dict.keys())) 获取字典dict中的最小值和对
 ##序列中出现次数最多的元素from collections import Counterword_counts = Counter(str)top_three = word_counts.most_common(n)实例化Counter对象word_counts (字典) 然后调用most_common(n)方法产生一个以元祖为元素的列表元祖内容为出现str序列中n个出现次数最多的元素以及出现总次数实例化的Count对象的特性是它们可以很容易的跟数学运算操作相结合
 
 
-##通过某个关键字排序一个字典列表from operator from itemgetterstr_by_uid = sorted(str, key = itemgetter(‘uid’))str_by_uid = sorted(str, key = lambda r:r[‘uid’])这两种方式都行如果需要多个参数itemgetter可以传入多个参数，sorted的key参数是callble类型的，如果itemgetter传入多个参数的话他生成的callable对象会返回一个元组，sorted会根据顺序去排序；如果lambda函数需要多个key值的话就需要返回多个值就行了并且itemgetter()方法相比之下运行稍微会快一点max_str_by_uid = max(str, key=itemgetter(‘uid’))
-
-
-##排序不支持原生比较的对象from operator import attrgetteruser_by_id = sorted(user, key=attrgetter(‘id’))user_by_id = sorted(user, key=lambda u:u[‘id’])sorted中传入的user参数为不支持原生比较的对像(写了比较函数的就不要这样了) attrgetter和lambda函数中传入的是对象属性且前者运行速度较快可传入多个参数">
+##通过某个关键字排序一个字典列表from operator from itemgetterstr_by_uid = sorted(str, key = itemgetter(‘uid’))str_by_uid = sorted(str, key = lambda r:r[‘uid’])这两种方式都行如果需要多个参数itemgetter可以传入多个参数，sorted的key参数是callble类型的，如果itemgetter传入多个参数的话他生成的callable对象会返回一个元组，sorted会根据顺序去排序；如果lambda函数需要多个key值的话就需要返回多个值就行了并且itemgetter()方法相比之下运行稍微会快一点max_str_by_uid = max(str, key=itemgetter(‘uid’))">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -176,10 +173,10 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>##通过某个关键字排序一个字典列表<br>from operator from itemgetter<br>str_by_uid = sorted(str, key = itemgetter(‘uid’))<br>str_by_uid = sorted(str, key = lambda r:r[‘uid’])<br>这两种方式都行如果需要多个参数itemgetter可以传入多个参数，sorted的key参数是callble类型的，如果itemgetter传入多个参数的话他生成的callable对象会返回一个元组，sorted会根据顺序去排序；如果lambda函数需要多个key值的话就需要返回多个值就行了并且itemgetter()方法相比之下运行稍微会快一点<br>max_str_by_uid = max(str, key=itemgetter(‘uid’))</p>
 </blockquote>
+<a id="more"></a>
 <blockquote>
 <p>##排序不支持原生比较的对象<br>from operator import attrgetter<br>user_by_id = sorted(user, key=attrgetter(‘id’))<br>user_by_id = sorted(user, key=lambda u:u[‘id’])<br>sorted中传入的user参数为不支持原生比较的对像(写了比较函数的就不要这样了) attrgetter和lambda函数中传入的是对象属性且前者运行速度较快可传入多个参数</p>
 </blockquote>
-<a id="more"></a>
 <blockquote>
 <p>##通过某个字段将记录分组</p>
 <p>from operator import itemgetter<br>from itertools import groupby<br>dict_list.sort(key=itemgetter(‘date’))<br>for date, item in groupby(tict_list, key=itemgetter(‘date’)):<br>​     print(date)<br>​     for i in items:<br>​           print(‘ ‘, i)<br>groupby()函数可以根据key值将一个字典函数分组，但是在使用这个函数时最好将需要分组的序列先排序，这里首相将dict_list利用sort函数传入itemgetter处理后的’date’参数排序，然后用groupby()函数按key值将dict_list分组打印.groupby()返回的是一个迭代器</p>

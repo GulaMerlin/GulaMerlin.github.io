@@ -170,9 +170,6 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>##通过某个关键字排序一个字典列表<br>from operator from itemgetter<br>str_by_uid = sorted(str, key = itemgetter(‘uid’))<br>str_by_uid = sorted(str, key = lambda r:r[‘uid’])<br>这两种方式都行如果需要多个参数itemgetter可以传入多个参数，sorted的key参数是callble类型的，如果itemgetter传入多个参数的话他生成的callable对象会返回一个元组，sorted会根据顺序去排序；如果lambda函数需要多个key值的话就需要返回多个值就行了并且itemgetter()方法相比之下运行稍微会快一点<br>max_str_by_uid = max(str, key=itemgetter(‘uid’))</p>
 </blockquote>
-<blockquote>
-<p>##排序不支持原生比较的对象<br>from operator import attrgetter<br>user_by_id = sorted(user, key=attrgetter(‘id’))<br>user_by_id = sorted(user, key=lambda u:u[‘id’])<br>sorted中传入的user参数为不支持原生比较的对像(写了比较函数的就不要这样了) attrgetter和lambda函数中传入的是对象属性且前者运行速度较快可传入多个参数</p>
-</blockquote>
 	
 	</div>
   <a type="button" href="/2018/11/20/cookbook/#more" class="btn btn-default more">Read More</a>
@@ -206,13 +203,7 @@ var _hmt = _hmt || [];
 <p>removeChild(node) - 删除子节点（元素）<br>先找到需要删除的节点的父节点再用方法删除需要删除的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>#一些常用的 HTML DOM 属性：<br>innerHTML - 节点（元素）的文本值<br>parentNode - 节点（元素）的父节点<br>childNodes - 节点（元素）的子节点<br>attributes - 节点（元素）的属性节点</p>
-</blockquote>
-<blockquote>
-<p>getElementById()    返回带有指定 ID 的元素。<br>getElementsByTagName()    返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。<br>getElementsByClassName()    返回包含带有指定类名的所有元素的节点列表。<br>appendChild()    把新的子节点添加到指定节点。<br>removeChild()    删除子节点。<br>replaceChild()    替换子节点。<br>如果你需要替换一个子节点name你需要做的事有6件<br>首先找到需要被替换的子节点和其父节点；其次创建一个新的节点或者替换的节点和替换的内容；在将替换的内容添加到新的节点中；最后用父节点.replaceChild(新的节点，被替换的节点)。这样你就完成了节点的替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p1&quot;);</span><br><span class="line">&gt;var para=document.createElement(&quot;p&quot;);</span><br><span class="line">&gt;var node=document.createTextNode(&quot;这是一个新的段落。&quot;);</span><br><span class="line">&gt;para.appendChild(node);</span><br><span class="line">&gt;parent.replaceChild(para,child);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>insertBefore()    在指定的子节点前面插入新的子节点。<br>createAttribute()    创建属性节点。<br>createElement()    创建元素节点。<br>createTextNode()    创建文本节点。<br>getAttribute()    返回指定的属性值。<br>setAttribute()    把指定属性设置或修改为指定的值。<br>
+<p>#一些常用的 HTML DOM 属性：<br>innerHTML - 节点（元素）的文本值<br>parentNode - 节点（元素）的父节点<br>childNodes - 节点（元素）的子节点<br>attributes - 节点（元素）的属性节点<br>
 	
 	</p></blockquote></div>
   <a type="button" href="/2018/11/20/DOM/#more" class="btn btn-default more">Read More</a>
