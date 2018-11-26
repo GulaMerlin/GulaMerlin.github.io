@@ -194,11 +194,8 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>####合并多个字典或映射<br>from collections from ChainMap<br>dict3 = ChainMap(dict1, dict2)<br>dict3只是从逻辑上变为一个字典，并不是真正的把dict1和dict2合并在一起了，ChainMap类只是在内部创建了一个容纳这些字典的列表并重新定义了一些常见的字典操作；如果出现复键会返回第一次的值；ChainMap和update()相比不同的是update()是创建了一个完全不同的新字典对象如果原有字典更新了这个新字典对象不回更新，因为ChainMap不是创建新的字典所以原来的字典列表更新也会跟着更新</p>
 </blockquote>
-<h2 id="字符串和文本"><a href="#字符串和文本" class="headerlink" title="##字符串和文本"></a>##字符串和文本</h2><blockquote>
+<h2 id="字符串和文本"><a href="#字符串和文本" class="headerlink" title="###字符串和文本"></a>###字符串和文本</h2><blockquote>
 <p>####使用多个界定符分割字符串<br>import re<br>re.split(re_str, str) re是关于正则表达式模块，split()方法传入两个参数re_str是正则表达式，str是你需要进行分割的字符串,返回一个分割后的list</p>
-</blockquote>
-<blockquote>
-<p>####字符串开头或结尾匹配<br>str.startswith(_str) 和str.endwith(_str)两个函数可以优雅的判断字符串是否是以指定字符串开头或者结尾(_str是希望开头或者结尾的字符串)<br>切片和正则表达式也可以判单相比之下较为复杂或者大材小用了</p>
 </blockquote>
 <blockquote>
 <p>####用Shell通配符匹配字符串<br>from fnmatch import fnmatch, fnmatchcase<br>fnmatch(str, ‘<em>.txt’’) 判断str是否以.txt结尾<br>也可以用于推导判断序列中的值是否以指定字符串结尾<br>[str_ for str_ in strs if fnmatchcase(str_, ‘</em>.txt’)]<br>fnmatch()和fnmatchcase()滴区别就是fnmatch在不同的系统中会区分大小写而fnmatchcase不会区分；这两个函数匹配能力介于简单的字符串方法和强大的正则表达式之间，不同的场景使用不同的方法收益也会不同</p>
@@ -219,7 +216,7 @@ var _hmt = _hmt || [];
 <p>re_str和re_str1不同之处是在’.<em>‘(贪婪匹配)’.</em>?’(非贪婪匹配)<br>得到最短的匹配加上？是尽可能少的匹配</p>
 </blockquote>
 <blockquote>
-<p>####多行匹配<br>(.)正则表达式中  . 是匹配除了换行符以外的任何字符<br>如果需要用 . 来匹配有换行的字符段是无法获取到你想要的结果<br>((?:.|\n)<em>?) ,(?:)问号加冒号是声明了一个非捕获组<br>非捕获组:一个仅仅用来做匹配， 而不能通过单独捕获或者编号的组   –&gt; ‘abcdabcde. re_str= ‘ab(.</em>)’匹配到结果 –&gt; [cd, cde]<br>​      –&gt; re_str1 = ‘ab(?:.<em>)’匹配到的结果 –&gt; [abcd, abcde]<br>((?:.|\n)</em>?):正则表达式的意思是匹配多个字符串包括换行符<br>在这里也有一个re.DOTALL可以去处理一些简单的模式<br>re.DOTALL可以让正则表达式中的点(.)匹配包括换行符在内的任意字符<br>re.findall(r’.*’, str, re.DOTALL)</p>
+<p>####多行匹配<br>(.)正则表达式中  . 是匹配除了换行符以外的任何字符<br>如果需要用 . 来匹配有换行的字符段是无法获取到你想要的结果<br>((?:.|\n)<em>?) ,(?:)问号加冒号是声明了一个非捕获组<br>非捕获组:一个仅仅用来做匹配， 而不能通过单独捕获或者编号的组   –&gt; ‘abcdabcde. re_str= ‘ab(.</em>)’匹配到结果 –&gt; [cd, cde]<br>​      –&gt; re_str1 = ‘ab(?:.<em>)’匹配到的结果 –&gt; [abcd, abcde]<br>((?:.|\n)</em>?):正则表达式的意思是匹配多个字符串包括换行符<br>在这里也有一个re.DOTALL可以去处理一些简单的模式<br>re.DOTALL可以让正则表达式中的点(.)匹配包括换行符在内的任意字符<br><code>re.findall(r&#39;.*&#39;, str, re.DOTALL)</code></p>
 </blockquote>
 <blockquote>
 <p>####将Unicode文本标准化<br>在Unicode中，某些字符能够用多个合法的编码表示。在需要比较字符串的程序中使用字符的多种表示会产生问题<br>import unicodedata<br>str = unicodedata.normalize(‘NFC’, str1) –&gt;将str1中的编码统一<br>NFC表示字符应该是整体组成(比如可能的话就使用单一编码,少数服从多数)，而NFD表示字符应该分解为多个组合字符表示<br>标准化对于任何需要以一致的方式处理Unicode文本的程序都是非常重要的。当处理来自用户输入的字符串而你很难去控制编码的时候尤其如此。在清理和过滤文本的时候字符的标准化也是很重要的。</p>

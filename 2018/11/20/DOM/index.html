@@ -9,13 +9,13 @@
   <title>关于DOM的要点使用 | GulaMerlin&#39;s only Py file</title>
   <meta name="author" content="Jian Jun">
   
-  <meta name="description" content="#一些常用的 HTML DOM 方法：getElementById(id) - 获取带有指定 id 的节点（元素）appendChild(node) - 插入新的子节点（元素）首先创建一个节点，然后创建一个文本节点，然后将文本节点添加到LI节点上。最后将节点添加到列表中。 appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。如果不希望如此，您可以使用 insertBefore() 方法12345&amp;gt;var node = document.createElement(&amp;quot;li&amp;quot;)  #创建了以li节点&amp;gt;var textnode = document.createTextNode(&amp;quot;里子&amp;quot;) #创建了一个文本节点&amp;gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上&amp;gt;document.getElementById(&amp;quot;d&amp;quot;).appendChild(node) #将节点li添加到列表中&amp;gt;
+  <meta name="description" content="###一些常用的 HTML DOM 方法：getElementById(id) - 获取带有指定 id 的节点（元素）appendChild(node) - 插入新的子节点（元素）首先创建一个节点，然后创建一个文本节点，然后将文本节点添加到LI节点上。最后将节点添加到列表中。 appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。如果不希望如此，您可以使用 insertBefore() 方法12345&amp;gt;var node = document.createElement(&amp;quot;li&amp;quot;)  #创建了以li节点&amp;gt;var textnode = document.createTextNode(&amp;quot;里子&amp;quot;) #创建了一个文本节点&amp;gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上&amp;gt;document.getElementById(&amp;quot;d&amp;quot;).appendChild(node) #将节点li添加到列表中&amp;gt;
 
 
 removeChild(node) - 删除子节点（元素）先找到需要删除的节点的父节点再用方法删除需要删除的节点123&amp;gt;var parent=document.getElementById(&amp;quot;div1&amp;quot;);&amp;gt;var child=document.getElementById(&amp;quot;p&amp;quot;)&amp;gt;
 
 
-#一些常用的 HTML DOM 属性：innerHTML - 节点（元素）的文本值parentNode - 节点（元素）的父节点childNodes - 节点（元素）的子节点attributes - 节点（元素）的属性节点">
+####一些常用的 HTML DOM 属性：innerHTML - 节点（元素）的文本值parentNode - 节点（元素）的父节点childNodes - 节点（元素）的子节点attributes - 节点（元素）的属性节点">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -142,27 +142,27 @@ var _hmt = _hmt || [];
 	  		
 
 	  <blockquote>
-<p>#一些常用的 HTML DOM 方法：<br>getElementById(id) - 获取带有指定 id 的节点（元素）<br>appendChild(node) - 插入新的子节点（元素）<br>首先创建一个节点，<br>然后创建一个文本节点，<br>然后将文本节点添加到LI节点上。<br>最后将节点添加到列表中。<br> appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。<br>如果不希望如此，您可以使用 insertBefore() 方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;var node = document.createElement(&quot;li&quot;)  #创建了以li节点</span><br><span class="line">&gt;var textnode = document.createTextNode(&quot;里子&quot;) #创建了一个文本节点</span><br><span class="line">&gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上</span><br><span class="line">&gt;document.getElementById(&quot;d&quot;).appendChild(node) #将节点li添加到列表中</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>###一些常用的 HTML DOM 方法：<br>getElementById(id) - 获取带有指定 id 的节点（元素）<br>appendChild(node) - 插入新的子节点（元素）<br>首先创建一个节点，<br>然后创建一个文本节点，<br>然后将文本节点添加到LI节点上。<br>最后将节点添加到列表中。<br> appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。<br>如果不希望如此，您可以使用 insertBefore() 方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;var node = document.createElement(&quot;li&quot;)  #创建了以li节点</span><br><span class="line">&gt;var textnode = document.createTextNode(&quot;里子&quot;) #创建了一个文本节点</span><br><span class="line">&gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上</span><br><span class="line">&gt;document.getElementById(&quot;d&quot;).appendChild(node) #将节点li添加到列表中</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>removeChild(node) - 删除子节点（元素）<br>先找到需要删除的节点的父节点再用方法删除需要删除的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>#一些常用的 HTML DOM 属性：<br>innerHTML - 节点（元素）的文本值<br>parentNode - 节点（元素）的父节点<br>childNodes - 节点（元素）的子节点<br>attributes - 节点（元素）的属性节点<br><a id="more"></a><br>getElementById()    返回带有指定 ID 的元素。<br>getElementsByTagName()    返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。<br>getElementsByClassName()    返回包含带有指定类名的所有元素的节点列表。<br>appendChild()    把新的子节点添加到指定节点。<br>removeChild()    删除子节点。<br>replaceChild()    替换子节点。<br>如果你需要替换一个子节点name你需要做的事有6件<br>首先找到需要被替换的子节点和其父节点；其次创建一个新的节点或者替换的节点和替换的内容；在将替换的内容添加到新的节点中；最后用父节点.replaceChild(新的节点，被替换的节点)。这样你就完成了节点的替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p1&quot;);</span><br><span class="line">&gt;var para=document.createElement(&quot;p&quot;);</span><br><span class="line">&gt;var node=document.createTextNode(&quot;这是一个新的段落。&quot;);</span><br><span class="line">&gt;para.appendChild(node);</span><br><span class="line">&gt;parent.replaceChild(para,child);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>####一些常用的 HTML DOM 属性：<br>innerHTML - 节点（元素）的文本值<br>parentNode - 节点（元素）的父节点<br>childNodes - 节点（元素）的子节点<br>attributes - 节点（元素）的属性节点<br><a id="more"></a><br>getElementById()    返回带有指定 ID 的元素。<br>getElementsByTagName()    返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。<br>getElementsByClassName()    返回包含带有指定类名的所有元素的节点列表。<br>appendChild()    把新的子节点添加到指定节点。<br>removeChild()    删除子节点。<br>replaceChild()    替换子节点。<br>如果你需要替换一个子节点name你需要做的事有6件<br>首先找到需要被替换的子节点和其父节点；其次创建一个新的节点或者替换的节点和替换的内容；在将替换的内容添加到新的节点中；最后用父节点.replaceChild(新的节点，被替换的节点)。这样你就完成了节点的替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p1&quot;);</span><br><span class="line">&gt;var para=document.createElement(&quot;p&quot;);</span><br><span class="line">&gt;var node=document.createTextNode(&quot;这是一个新的段落。&quot;);</span><br><span class="line">&gt;para.appendChild(node);</span><br><span class="line">&gt;parent.replaceChild(para,child);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>insertBefore()    在指定的子节点前面插入新的子节点。<br>createAttribute()    创建属性节点。<br>createElement()    创建元素节点。<br>createTextNode()    创建文本节点。<br>getAttribute()    返回指定的属性值。<br>setAttribute()    把指定属性设置或修改为指定的值。</p>
-<p>##nodeValue 属性<br>nodeValue 属性规定节点的值。<br>元素节点的 nodeValue 是 undefined 或 null<br>文本节点的 nodeValue 是文本本身<br>属性节点的 nodeValue 是属性值</p>
+<p>####nodeValue 属性<br>nodeValue 属性规定节点的值。<br>元素节点的 nodeValue 是 undefined 或 null<br>文本节点的 nodeValue 是文本本身<br>属性节点的 nodeValue 是属性值</p>
 </blockquote>
 <blockquote>
-<p>##修改 HTML 元素<br>修改 HTML DOM 意味着许多不同的方面：<br>改变 HTML 内容<br>改变 CSS 样式<br>改变 HTML 属性<br>创建新的 HTML 元素<br>删除已有的 HTML 元素<br>找到需要修改的节点用innerHTML属性等于新的值像这样：documen.getElementById(“info”).innerHTML=”新的数据”<br>修改样式：<br>documen.getElementById(“info”).style.color=”red”<br>这里修改样式很灵活，如果你只需要修改某一个属性就点上它如果需要修改所有属性那么就不需要点任何一个属性直接style=””这样你就可以重写他的样式了</p>
+<p>####修改 HTML 元素<br>修改 HTML DOM 意味着许多不同的方面：<br>改变 HTML 内容<br>改变 CSS 样式<br>改变 HTML 属性<br>创建新的 HTML 元素<br>删除已有的 HTML 元素<br>找到需要修改的节点用innerHTML属性等于新的值像这样：documen.getElementById(“info”).innerHTML=”新的数据”<br>修改样式：<br>documen.getElementById(“info”).style.color=”red”<br>这里修改样式很灵活，如果你只需要修改某一个属性就点上它如果需要修改所有属性那么就不需要点任何一个属性直接style=””这样你就可以重写他的样式了</p>
 </blockquote>
 <blockquote>
-<p>##HTML 事件属性</p>
-<p>###onclick=””<br>鼠标点击事件：当鼠标点击有onclick事件的元素或者节点时会执行双引号中的函数</p>
-<p>###onload 和 onunload 事件<br>用户进入或者离开网页事件：当用户进入到某一网页含onload 和 onunload 事件中时会执行事件后的函数多用于处理 cookies。</p>
-<p>###onchange 事件<br>onchange 事件常用于输入字段的验证。这里是当你完成输入时触发事件后的函数</p>
-<p>###onmouseover 和 onmouseout 事件<br>onmouseover 和 onmouseout 事件可用于在鼠标指针移动到或离开元素时触发函数。</p>
+<p>###HTML 事件属性</p>
+<p>####onclick=””<br>鼠标点击事件：当鼠标点击有onclick事件的元素或者节点时会执行双引号中的函数</p>
+<p>####onload 和 onunload 事件<br>用户进入或者离开网页事件：当用户进入到某一网页含onload 和 onunload 事件中时会执行事件后的函数多用于处理 cookies。</p>
+<p>####onchange 事件<br>onchange 事件常用于输入字段的验证。这里是当你完成输入时触发事件后的函数</p>
+<p>####onmouseover 和 onmouseout 事件<br>onmouseover 和 onmouseout 事件可用于在鼠标指针移动到或离开元素时触发函数。</p>
 <p>###onmousedown、onmouseup 以及 onclick 事件<br>onmousedown、onmouseup 以及 onclick 事件是鼠标点击的全部过程。首先当某个鼠标按钮被点击时，触发 onmousedown 事件，然后，当鼠标按钮被松开时，会触发 onmouseup 事件，最后，当鼠标点击完成时，触发 onclick 事件</p>
 </blockquote>
 	  
