@@ -10,7 +10,12 @@
   <meta name="author" content="Jian Jun">
   
   <meta name="description" content="Linux系统安装软件:1.使用包管理工具 - apt/yum(CentOS,Redhat) / apt (Ubuntu) / deb(Debian)2.源代码构建安装 - 直接下载源代码 用C语言构建工具进行构建3.直接下载二进制程序 - 配置环境变量之后使用
-ApacheNginx  - - -">
+ApacheNginx  - - -&amp;gt; HTTP服务器 - - -&amp;gt; 提供Web应用
+internet是基于TCPP/IP模型的四层架构
+
+应用层 - HTTP(80) / FTP / SSH / QQ / SMTP(25) / POP3(110)传输层 - TCP / UDP - 端到端的传输服务 （TCP可靠通信、流量控制、拥塞控制）网络层 - IP -物理链路层 (网络接口层) - 分帧和校验
+
+服务端口是对IP地址的扩展，用来区分不同的服务">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -144,6 +149,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p><strong>服务端口是对IP地址的扩展，用来区分不同的服务</strong></p>
 <hr>
+<a id="more"></a>
 <h4 id="Linux系统python环境到3-7-1"><a href="#Linux系统python环境到3-7-1" class="headerlink" title="Linux系统python环境到3.7.1"></a>Linux系统python环境到3.7.1</h4><ol>
 <li><p><strong>安装gcc和依赖库</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</span><br></pre></td></tr></table></figure>
