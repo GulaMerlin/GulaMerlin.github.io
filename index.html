@@ -779,10 +779,8 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>removeChild(node) - 删除子节点（元素）<br>先找到需要删除的节点的父节点再用方法删除需要删除的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<blockquote>
-<h4 id="一些常用的-HTML-DOM-属性："><a href="#一些常用的-HTML-DOM-属性：" class="headerlink" title="一些常用的 HTML DOM 属性："></a>一些常用的 HTML DOM 属性：</h4><p>innerHTML - 节点（元素）的文本值<br>parentNode - 节点（元素）的父节点<br>childNodes - 节点（元素）的子节点<br>attributes - 节点（元素）的属性节点<br>
 	
-	</p></blockquote></div>
+	</div>
   <a type="button" href="/2018/11/20/DOM/#more" class="btn btn-default more">Read More</a>
 </div>
 
@@ -842,22 +840,21 @@ var _hmt = _hmt || [];
 	
 	
 		<p><strong>持续更新</strong></p>
-<h2 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="###数据结构和算法"></a>###数据结构和算法</h2><blockquote>
+<h3 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h3><hr>
+<blockquote>
 <p>from collections import deque<br>deque(maxlen=n)构造函数新建一个大小为n的列队，当新的元素加入并且这个队列已满的时候，最老的元素会被自动移除掉</p>
 </blockquote>
 <blockquote>
 <p>import heaps<br>heaps.nlargest(n, nums, key) 在nums中找最大到n个数或者以key为最值寻找<br>heaps.nsmallest(n, nums, key) 在nums中找最小到n个数或者以key为最值寻找</p>
 </blockquote>
 <blockquote>
-<p>####字典中的键映射多个值</p>
-<p>from collections import defaultdict<br>a = defaultdict(type) 构造一个字典a且值类型为type<br>a[‘g’].append(1) 向字典a中添加键为g值为1的内容</p>
+<h4 id="字典中的键映射多个值"><a href="#字典中的键映射多个值" class="headerlink" title="字典中的键映射多个值"></a>字典中的键映射多个值</h4><p>from collections import defaultdict<br>a = defaultdict(type) 构造一个字典a且值类型为type<br>a[‘g’].append(1) 向字典a中添加键为g值为1的内容</p>
 </blockquote>
 <blockquote>
 <p>min = min(zip(dict.values(), dict.keys())) 获取字典dict中的最小值和对应的键<br>dict = sorted = sorted(zip(dict.values(), dict.keys()))为dict排序<br>相比用lambda函数来说比较方便</p>
 </blockquote>
 <blockquote>
-<p>####序列中出现次数最多的元素</p>
-<p>from collections import Counter<br>word_counts = Counter(str)<br>top_three = word_counts.most_common(n)<br>实例化Counter对象word_counts (字典) 然后调用most_common(n)方法产生一个以元祖为元素的列表元祖内容为出现str序列中n个出现次数最多的元素以及出现总次数<br>实例化的Count对象的特性是它们可以很容易的跟数学运算操作相结合</p>
+<h4 id="序列中出现次数最多的元素"><a href="#序列中出现次数最多的元素" class="headerlink" title="序列中出现次数最多的元素"></a>序列中出现次数最多的元素</h4><p>from collections import Counter<br>word_counts = Counter(str)<br>top_three = word_counts.most_common(n)<br>实例化Counter对象word_counts (字典) 然后调用most_common(n)方法产生一个以元祖为元素的列表元祖内容为出现str序列中n个出现次数最多的元素以及出现总次数<br>实例化的Count对象的特性是它们可以很容易的跟数学运算操作相结合</p>
 </blockquote>
 	
 	</div>
@@ -917,13 +914,13 @@ var _hmt = _hmt || [];
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/cookbook/">cookbook<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
-		
 			<li><a href="/tags/DOM/">DOM<span>1</span></a></li>
 		
+			<li><a href="/tags/cookbook/">cookbook<span>1</span></a></li>
+		
 			<li><a href="/tags/command/">command<span>1</span></a></li>
+		
+			<li><a href="/tags/Software-and-services/">Software and services<span>1</span></a></li>
 		
 		 
 		</ul>
