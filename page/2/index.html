@@ -173,35 +173,6 @@ var _hmt = _hmt || [];
 </div>
 
 		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2019/02/20/异步任务和计划任务/">Django</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2019-02-20  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h1><h3 id="配置celery"><a href="#配置celery" class="headerlink" title="配置celery"></a>配置celery</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果将celery注册放到主app下需要</span></span><br><span class="line"><span class="comment">#注册环境变量（注册Django配置文件）</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'love_clothes.settings'</span>)</span><br><span class="line"><span class="comment">#创建Celery的实例 - broker代表消息代理（从哪里获取消息队列服务）common.utils 当前模块</span></span><br><span class="line"><span class="comment"># app = celery.Celery('common.utils',</span></span><br><span class="line"><span class="comment">#                     broker='redis://:123456@120.77.222.217:6379/0')</span></span><br><span class="line">app = celery.Celery(<span class="string">'common.utlis'</span>,</span><br><span class="line">                    broker=<span class="string">'redis://47.107.175.211/3'</span>)</span><br><span class="line"><span class="comment">#读取Django项目的配置信息</span></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>)</span><br><span class="line"><span class="comment">#让Celery自动从参数指定的应用中发现异步任务/定时任务</span></span><br><span class="line">app.autodiscover_tasks(<span class="keyword">lambda</span> :settings.INSTALLED_APPS)</span><br><span class="line"><span class="comment"># app.autodiscover_tasks(['common', ])</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定时任务</span></span><br><span class="line">app.conf.update(</span><br><span class="line">    timezone=settings.TIME_ZONE, <span class="comment"># 项目设置时区</span></span><br><span class="line">    enable_utc=<span class="keyword">True</span>,</span><br><span class="line">    <span class="comment"># 定时任务要通过消息的生产者将其转换成队列中的消息</span></span><br><span class="line">    <span class="comment"># celery -A common.utils beat -l info</span></span><br><span class="line">    beat_schedule=&#123;</span><br><span class="line">        <span class="string">'export_excel_task'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'common.tasks.auto_export_excel'</span>, <span class="comment"># 定时函数</span></span><br><span class="line">            <span class="string">'schedule'</span>: crontab(), <span class="comment"># 克隆表 默认每分钟执行一次</span></span><br><span class="line">            <span class="comment"># 'args': ('', ) 定时函数传的参数</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="创建生产者和消费者"><a href="#创建生产者和消费者" class="headerlink" title="创建生产者和消费者"></a>创建生产者和消费者</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#消费者</span></span><br><span class="line">celery -A common.utils worker -l info &amp;</span><br><span class="line"><span class="comment">#生产者</span></span><br><span class="line">celery -A common.utlis beat -l debug</span><br><span class="line"><span class="comment">#使用Windows 10做开发且使用celery 4.x版本需要先安装一个三方库作为辅助</span></span><br><span class="line">pip install eventlet</span><br><span class="line"><span class="comment">#然后启动celery的消费者的时候需要多加一个参数</span></span><br><span class="line">celery -A common.utils worker -l info -P eventlet</span><br></pre></td></tr></table></figure>
-<h3 id="用导出excel为例"><a href="#用导出excel为例" class="headerlink" title="用导出excel为例"></a>用导出excel为例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> backend.models <span class="keyword">import</span> Emp, Dept</span><br><span class="line"><span class="keyword">from</span> love_clothes <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="comment"># task是一个类，扮演了两方面的角色：任务被调用时来发送消息、工作进程在收到消息时操作。task的名称则是标志，这样工作进程可以找到对应的函数。</span></span><br><span class="line"><span class="meta">@app.task #在需要异步进行的函数加上该装饰器即可</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">auto_export_excel</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建Excel工作簿</span></span><br><span class="line">    workbook = xlwt.Workbook()</span><br><span class="line">    <span class="comment"># 向工作簿中添加工作表</span></span><br><span class="line">    sheet = workbook.add_sheet(<span class="string">'员工详细信息'</span>)</span><br><span class="line">    <span class="comment"># 设置表头</span></span><br><span class="line">    titles = (<span class="string">'编号'</span>, <span class="string">'姓名'</span>, <span class="string">'职位'</span>, <span class="string">'工资'</span>)</span><br><span class="line">    <span class="keyword">for</span> col, title <span class="keyword">in</span> enumerate(titles):</span><br><span class="line">        sheet.write(<span class="number">0</span>, col, title)</span><br><span class="line">    <span class="comment"># 通过only或者defer()方法进行筛选SQL投影操作</span></span><br><span class="line">    props = (<span class="string">'no'</span>, <span class="string">'name'</span>, <span class="string">'job'</span>, <span class="string">'mgr'</span>, <span class="string">'sal'</span>, <span class="string">'dept'</span>)</span><br><span class="line">    emps = Emp.objects.all() \</span><br><span class="line">               .select_related(<span class="string">'mgr'</span>) \</span><br><span class="line">               .select_related(<span class="string">'dept'</span>) \</span><br><span class="line">               .only(*props).order_by(<span class="string">'-sal'</span>)</span><br><span class="line">    <span class="keyword">for</span> row, emp <span class="keyword">in</span> enumerate(emps):</span><br><span class="line">        <span class="keyword">for</span> col, prop <span class="keyword">in</span> enumerate(props):</span><br><span class="line">            <span class="comment"># 通过getattr函数获取对象属性</span></span><br><span class="line">            val = getattr(emp, prop, <span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> isinstance(val, (Emp, Dept)):</span><br><span class="line">                val = getattr(val, <span class="string">'name'</span>)</span><br><span class="line">            sheet.write(row + <span class="number">1</span>, col, val)</span><br><span class="line">    <span class="comment"># 将Excel表哥的数据写入内存中</span></span><br><span class="line">    current_time = datetime.now()</span><br><span class="line"></span><br><span class="line">    filename = <span class="string">f'员工信息表<span class="subst">&#123;current_time.strftime(<span class="string">"%Y-%m-%d-%H-%M"</span>)&#125;</span>.xlsx'</span></span><br><span class="line">    filepath = <span class="string">f'/Users/hujianjun/excel/<span class="subst">&#123;filename&#125;</span>'</span></span><br><span class="line">    workbook.save(filepath)</span><br></pre></td></tr></table></figure>
-	
-	</div>
-  <a type="button" href="/2019/02/20/异步任务和计划任务/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
 
 		</div>
 
@@ -251,7 +222,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/Liunx/">Liunx<span>2</span></a></li>
 		
-			<li><a href="/categories/Python/">Python<span>4</span></a></li>
+			<li><a href="/categories/Python/">Python<span>3</span></a></li>
 		
 			<li><a href="/categories/web前端/">web前端<span>1</span></a></li>
 		
@@ -264,17 +235,17 @@ var _hmt = _hmt || [];
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/Software-and-services/">Software and services<span>1</span></a></li>
+		
+			<li><a href="/tags/Django/">Django<span>1</span></a></li>
+		
 			<li><a href="/tags/Flask/">Flask<span>1</span></a></li>
-		
-			<li><a href="/tags/command/">command<span>1</span></a></li>
-		
-			<li><a href="/tags/Django/">Django<span>2</span></a></li>
 		
 			<li><a href="/tags/DOM/">DOM<span>1</span></a></li>
 		
 			<li><a href="/tags/cookbook/">cookbook<span>1</span></a></li>
 		
-			<li><a href="/tags/Software-and-services/">Software and services<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -286,10 +257,6 @@ var _hmt = _hmt || [];
 <div class="widget">
   <h4>Recent Posts</h4>
   <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2019/02/20/异步任务和计划任务/"><i class="fa fa-file-o"></i>Django</a>
-      </li>
     
       <li>
         <a href="/2018/11/20/cookbook/"><i class="fa fa-file-o"></i>Python_cookbook</a>
@@ -305,6 +272,10 @@ var _hmt = _hmt || [];
     
       <li>
         <a href="/2018/11/12/Flask/"><i class="fa fa-file-o"></i>Flask</a>
+      </li>
+    
+      <li>
+        <a href="/2018/11/12/Django/"><i class="fa fa-file-o"></i>Django</a>
       </li>
     
   </ul>
