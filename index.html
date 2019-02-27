@@ -397,6 +397,38 @@ var _hmt = _hmt || [];
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
+			<a href="/2018/11/20/DOM/">关于DOM的要点使用</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2018-11-20  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<h3 id="一些常用的-HTML-DOM-方法："><a href="#一些常用的-HTML-DOM-方法：" class="headerlink" title="一些常用的 HTML DOM 方法："></a>一些常用的 HTML DOM 方法：</h3><p>getElementById(id) - 获取带有指定 id 的节点（元素）<br>appendChild(node) - 插入新的子节点（元素）<br>首先创建一个节点，<br>然后创建一个文本节点，<br>然后将文本节点添加到LI节点上。<br>最后将节点添加到列表中。<br> appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。<br>如果不希望如此，您可以使用 insertBefore() 方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;var node = document.createElement(&quot;li&quot;)  #创建了以li节点</span><br><span class="line">&gt;var textnode = document.createTextNode(&quot;里子&quot;) #创建了一个文本节点</span><br><span class="line">&gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上</span><br><span class="line">&gt;document.getElementById(&quot;d&quot;).appendChild(node) #将节点li添加到列表中</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>removeChild(node) - 删除子节点（元素）<br>先找到需要删除的节点的父节点再用方法删除需要删除的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+	
+	</div>
+  <a type="button" href="/2018/11/20/DOM/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
 			<a href="/2018/11/20/linux安装软件/">Software and services</a>
 		</h3>
 		</div>
@@ -422,38 +454,6 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2018/11/20/linux安装软件/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2018/11/20/DOM/">关于DOM的要点使用</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2018-11-20  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<h3 id="一些常用的-HTML-DOM-方法："><a href="#一些常用的-HTML-DOM-方法：" class="headerlink" title="一些常用的 HTML DOM 方法："></a>一些常用的 HTML DOM 方法：</h3><p>getElementById(id) - 获取带有指定 id 的节点（元素）<br>appendChild(node) - 插入新的子节点（元素）<br>首先创建一个节点，<br>然后创建一个文本节点，<br>然后将文本节点添加到LI节点上。<br>最后将节点添加到列表中。<br> appendChild() 方法，将新元素作为父元素的最后一个子元素进行添加。<br>如果不希望如此，您可以使用 insertBefore() 方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;var node = document.createElement(&quot;li&quot;)  #创建了以li节点</span><br><span class="line">&gt;var textnode = document.createTextNode(&quot;里子&quot;) #创建了一个文本节点</span><br><span class="line">&gt;node.appendChild(textnode) #将文本节点textnote添加到li节点node上</span><br><span class="line">&gt;document.getElementById(&quot;d&quot;).appendChild(node) #将节点li添加到列表中</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>removeChild(node) - 删除子节点（元素）<br>先找到需要删除的节点的父节点再用方法删除需要删除的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;var parent=document.getElementById(&quot;div1&quot;);</span><br><span class="line">&gt;var child=document.getElementById(&quot;p&quot;)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-	
-	</div>
-  <a type="button" href="/2018/11/20/DOM/#more" class="btn btn-default more">Read More</a>
 </div>
 
 		
@@ -519,15 +519,15 @@ var _hmt = _hmt || [];
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Software-and-services/">Software and services<span>1</span></a></li>
+			<li><a href="/tags/command/">command<span>1</span></a></li>
 		
 			<li><a href="/tags/DOM/">DOM<span>1</span></a></li>
 		
-			<li><a href="/tags/Django/">Django<span>2</span></a></li>
+			<li><a href="/tags/Software-and-services/">Software and services<span>1</span></a></li>
 		
 			<li><a href="/tags/cookbook/">cookbook<span>1</span></a></li>
 		
-			<li><a href="/tags/command/">command<span>1</span></a></li>
+			<li><a href="/tags/Django/">Django<span>2</span></a></li>
 		
 			<li><a href="/tags/Flask/">Flask<span>1</span></a></li>
 		
@@ -551,11 +551,11 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
-        <a href="/2018/11/20/linux安装软件/"><i class="fa fa-file-o"></i>Software and services</a>
+        <a href="/2018/11/20/DOM/"><i class="fa fa-file-o"></i>关于DOM的要点使用</a>
       </li>
     
       <li>
-        <a href="/2018/11/20/DOM/"><i class="fa fa-file-o"></i>关于DOM的要点使用</a>
+        <a href="/2018/11/20/linux安装软件/"><i class="fa fa-file-o"></i>Software and services</a>
       </li>
     
       <li>
