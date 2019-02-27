@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>Django | GulaMerlin&#39;s only Py file</title>
+  <meta name="author" content="Jian Jun">
+  
+  <meta name="description" content="AsyncTask配置celery1234567891011121314151617181920212223242526272829# 如果将celery注册放到主app下需要#注册环境变量（注册Django配置文件）os.environ.setdefault(&#39;DJANGO_SETTINGS_MO">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Django">
+  <meta property="og:site_name" content="GulaMerlin&#39;s only Py file">
+
+  
+    <meta property="og:image" content="">
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+</html>
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">GulaMerlin&#39;s only Py file</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> Django</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h1><h3 id="配置celery"><a href="#配置celery" class="headerlink" title="配置celery"></a>配置celery</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果将celery注册放到主app下需要</span></span><br><span class="line"><span class="comment">#注册环境变量（注册Django配置文件）</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'love_clothes.settings'</span>)</span><br><span class="line"><span class="comment">#创建Celery的实例 - broker代表消息代理（从哪里获取消息队列服务）common.utils 当前模块</span></span><br><span class="line"><span class="comment"># app = celery.Celery('common.utils',</span></span><br><span class="line"><span class="comment">#                     broker='redis://:123456@120.77.222.217:6379/0')</span></span><br><span class="line">app = celery.Celery(<span class="string">'common.utlis'</span>,</span><br><span class="line">                    broker=<span class="string">'redis://47.107.175.211/3'</span>)</span><br><span class="line"><span class="comment">#读取Django项目的配置信息</span></span><br><span class="line">app.config_from_object(<span class="string">'django.conf:settings'</span>)</span><br><span class="line"><span class="comment">#让Celery自动从参数指定的应用中发现异步任务/定时任务</span></span><br><span class="line">app.autodiscover_tasks(<span class="keyword">lambda</span> :settings.INSTALLED_APPS)</span><br><span class="line"><span class="comment"># app.autodiscover_tasks(['common', ])</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定时任务</span></span><br><span class="line">app.conf.update(</span><br><span class="line">    timezone=settings.TIME_ZONE, <span class="comment"># 项目设置时区</span></span><br><span class="line">    enable_utc=<span class="keyword">True</span>,</span><br><span class="line">    <span class="comment"># 定时任务要通过消息的生产者将其转换成队列中的消息</span></span><br><span class="line">    <span class="comment"># celery -A common.utils beat -l info</span></span><br><span class="line">    beat_schedule=&#123;</span><br><span class="line">        <span class="string">'export_excel_task'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'common.tasks.auto_export_excel'</span>, <span class="comment"># 定时函数</span></span><br><span class="line">            <span class="string">'schedule'</span>: crontab(), <span class="comment"># 克隆表 默认每分钟执行一次</span></span><br><span class="line">            <span class="comment"># 'args': ('', ) 定时函数传的参数</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="创建生产者和消费者"><a href="#创建生产者和消费者" class="headerlink" title="创建生产者和消费者"></a>创建生产者和消费者</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#消费者</span></span><br><span class="line">celery -A common.utils worker -l info &amp;</span><br><span class="line"><span class="comment">#生产者</span></span><br><span class="line">celery -A common.utlis beat -l debug</span><br><span class="line"><span class="comment">#使用Windows 10做开发且使用celery 4.x版本需要先安装一个三方库作为辅助</span></span><br><span class="line">pip install eventlet</span><br><span class="line"><span class="comment">#然后启动celery的消费者的时候需要多加一个参数</span></span><br><span class="line">celery -A common.utils worker -l info -P eventlet</span><br></pre></td></tr></table></figure>
+<h3 id="用导出excel为例"><a href="#用导出excel为例" class="headerlink" title="用导出excel为例"></a>用导出excel为例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> backend.models <span class="keyword">import</span> Emp, Dept</span><br><span class="line"><span class="keyword">from</span> love_clothes <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line"><span class="comment"># task是一个类，扮演了两方面的角色：任务被调用时来发送消息、工作进程在收到消息时操作。task的名称则是标志，这样工作进程可以找到对应的函数。</span></span><br><span class="line"><span class="meta">@app.task #在需要异步进行的函数加上该装饰器即可</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">auto_export_excel</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建Excel工作簿</span></span><br><span class="line">    workbook = xlwt.Workbook()</span><br><span class="line">    <span class="comment"># 向工作簿中添加工作表</span></span><br><span class="line">    sheet = workbook.add_sheet(<span class="string">'员工详细信息'</span>)</span><br><span class="line">    <span class="comment"># 设置表头</span></span><br><span class="line">    titles = (<span class="string">'编号'</span>, <span class="string">'姓名'</span>, <span class="string">'职位'</span>, <span class="string">'工资'</span>)</span><br><span class="line">    <span class="keyword">for</span> col, title <span class="keyword">in</span> enumerate(titles):</span><br><span class="line">        sheet.write(<span class="number">0</span>, col, title)</span><br><span class="line">    <span class="comment"># 通过only或者defer()方法进行筛选SQL投影操作</span></span><br><span class="line">    props = (<span class="string">'no'</span>, <span class="string">'name'</span>, <span class="string">'job'</span>, <span class="string">'mgr'</span>, <span class="string">'sal'</span>, <span class="string">'dept'</span>)</span><br><span class="line">    emps = Emp.objects.all() \</span><br><span class="line">               .select_related(<span class="string">'mgr'</span>) \</span><br><span class="line">               .select_related(<span class="string">'dept'</span>) \</span><br><span class="line">               .only(*props).order_by(<span class="string">'-sal'</span>)</span><br><span class="line">    <span class="keyword">for</span> row, emp <span class="keyword">in</span> enumerate(emps):</span><br><span class="line">        <span class="keyword">for</span> col, prop <span class="keyword">in</span> enumerate(props):</span><br><span class="line">            <span class="comment"># 通过getattr函数获取对象属性</span></span><br><span class="line">            val = getattr(emp, prop, <span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> isinstance(val, (Emp, Dept)):</span><br><span class="line">                val = getattr(val, <span class="string">'name'</span>)</span><br><span class="line">            sheet.write(row + <span class="number">1</span>, col, val)</span><br><span class="line">    <span class="comment"># 将Excel表哥的数据写入内存中</span></span><br><span class="line">    current_time = datetime.now()</span><br><span class="line"></span><br><span class="line">    filename = <span class="string">f'员工信息表<span class="subst">&#123;current_time.strftime(<span class="string">"%Y-%m-%d-%H-%M"</span>)&#125;</span>.xlsx'</span></span><br><span class="line">    filepath = <span class="string">f'/Users/hujianjun/excel/<span class="subst">&#123;filename&#125;</span>'</span></span><br><span class="line">    workbook.save(filepath)</span><br></pre></td></tr></table></figure>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2018/11/20/cookbook/" type="button" class="btn btn-default ">Next<i class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2019-02-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    </li><li><a href="/categories/Python/">Python<span>4</span></a></li>
+  
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Django/">Django<span>2</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Jian Jun
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>
